@@ -16,6 +16,10 @@ const Header = () => {
         };
     }, []);
 
+    const handleLaunchApp = () => {
+        window.open(process.env.REACT_APP_MONETARIA_APP, '_blank');
+    }
+
     return (
         <header className='header d-flex align-items-center justify-content-between p-3 gap-5'>
             <div className='header__logo-container d-flex align-items-center gap-3'>
@@ -34,7 +38,12 @@ const Header = () => {
                 <a className='ms-auto text-white text-decoration-none ps-4' href='/'>FAQ</a>
             </div>
             <div className='header__button d-flex gap-2 align-items-center'>
-                <input className='text-dark bg-white rounded py-2 px-3 fw-bold' type='button' value='Launch App'/>
+                <input
+                    className='text-dark bg-white rounded py-2 px-3 fw-bold' 
+                    type='button' 
+                    value='Launch App'
+                    onClick={handleLaunchApp}
+                />
                 <div className='header__dropdown' onClick={() => setShowDropDown(_ => !_)}>
                     <img src='/dropdown.png' alt='Dropdown'/>
                 </div>
